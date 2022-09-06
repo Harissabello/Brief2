@@ -149,15 +149,13 @@ div.gallery img {
      </div>
   </header>
 
-  <section id="premier">
+  <section id="premier" style="position: relative;">
 
 
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
 
       <?php
-    // require('connet.php');
-   
     $req ="SELECT*FROM publication ORDER BY id DESC";
     $result = mysqli_query($conn, $req);
     
@@ -184,8 +182,8 @@ div.gallery img {
     
 
       <!-- les fleches -->
-      <div class="swiper-button-next" style="height: 80px;width: 50px; color: black; background-color: white;font-weight: bold;margin-top: -240px;"></div>
-      <div class="swiper-button-prev" style="height: 80px;width: 50px;color: black; background-color: white;font-weight: bold;margin-top: -240px;"></div>
+      <div class="swiper-button-next" style="height: 80px;width: 50px; position: absolute; color: black; background-color: transparent;font-weight: bold;margin-top: -40px;margin-right:0;"></div>
+      <div class="swiper-button-prev" style="height: 80px;width: 50px; position: absolute; color: black; background-color: transparent;font-weight: bold;margin-top: -40px;"></div>
       
  
 	  </section>
@@ -322,7 +320,7 @@ div.gallery img {
        
 
           $id= $_GET["id"];
-          $commentaire = $_POST["mess"];
+          $commentaire =  addslashes($_POST["mess"]);
           
         $sql = "INSERT INTO `commentaire`(`texte`, `date_pub`, `publication_id`) VALUES ('$commentaire',NOW(),$id)";
 
@@ -339,9 +337,9 @@ div.gallery img {
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script>
       var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 12,
+        slidesPerView: 10,
         spaceBetween: 2,
-        slidesPerGroup: 12,
+        slidesPerGroup: 10,
         loop: true,
         loopFillGroupWithBlank: true,
         pagination: {

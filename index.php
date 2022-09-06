@@ -178,7 +178,7 @@ div.desc1{
 	&nbsp;
   <header>
     <div style="display: flex;align-items: center;">
-      &nbsp;&nbsp;&nbsp;<img width="100" height="100" src="images/Hari Dabali.png">
+      &nbsp;&nbsp;&nbsp;<img width="110" height="110" src="images/Hari Dabali.png">
        <input id="rech" type="text" name="rech">
        <img style="margin-left: -110px; padding-right: 5px;" src="images/micro.png" width="25" height="25">
        <img style="margin-left: 2px; padding-right: 5px;" src="images/camera.png" width="25" height="20">
@@ -213,7 +213,7 @@ div.desc1{
             <option value="Conseil">Conseil</option>
           </select>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="submit">Filtre <img style="margin-bottom: -7px;" class="imj9" src="images/filtre.png"></button>
+          <button type="submit">Filtre <img  class="imj9" src="images/filtre.png"></button>
       
         </div>
     
@@ -268,24 +268,25 @@ if (isset($_POST['fonction'])) {
      <div class="Trait">	 	
      </div>
   </header>
-
-  <section id="premier">
+ 
+  <section id="premier"  style="position: relative;">
 
 
     <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
+        <div class="swiper-wrapper">
 
-      <?php
+          <?php
     // require('connet.php');
     
     
-     while($hari = mysqli_fetch_assoc($data1)){
-    ?>
-    <div class="swiper-slide">
-      <img class="img_scroll" src="<?=$hari['imagepub']?>" alt="image">
-      <div class="div_text_scroll"><?=$hari['titre']?><br>  <b><?=$hari['fonction']?></b></div>
+              while($hari = mysqli_fetch_assoc($data1)){
+                 ?>
+          <div class="swiper-slide">
+              <img class="img_scroll" src="<?=$hari['imagepub']?>" alt="image">
+          <div class="div_text_scroll"><?=$hari['titre']?><br>  <b><?=$hari['fonction']?></b></div>
       
-    </div>
+          </div>
+    
 
  
 <!--fin 3eme scroll-->
@@ -300,21 +301,22 @@ if (isset($_POST['fonction'])) {
     
 
       <!-- les fleches -->
-      <div class="swiper-button-next" style="height: 80px;width: 50px; color: black; background-color: white;font-weight: bold;margin-top: -180px;"></div>
-      <div class="swiper-button-prev" style="height: 80px;width: 50px;color: black; background-color: white;font-weight: bold;margin-top: -180px;"></div>
+      <div class="swiper-button-next" style="height: 80px;width: 50px; position: absolute; color: black; background-color: transparent;font-weight: bold;margin-top: -40px;"></div>
+      <div class="swiper-button-prev" style="height: 80px;width: 50px; position: absolute; color: black; background-color: transparent;font-weight: bold;margin-top: -40px;"></div>
       <!--<div class="swiper-pagination"></div>-->
-      
+
+      </section>
  
-	  </section>
+
 
 	 <!--galerie image-->
-   <section id="deuxieme" style="width: 100%; padding-top: 20px;">
+   <section id="deuxieme" style="width: 100%;padding-top: 20px; padding-right: 30px;">
    <?php
 
     
     while($har = mysqli_fetch_assoc($data2)){
     ?>
-      <div style="display: inline-flex;justify-content: space-around;margin-left: 10px;margin-bottom:10px" >
+      <div style="display: inline-flex;justify-content: space-around;margin-left: 5px;margin-bottom:10px" >
 
       <div class="gallery" class="boite" >
         <a  href="visuel.php?id=<?=$har['id']?>">
@@ -364,10 +366,12 @@ if (isset($_POST['fonction'])) {
   
 ?>
 
+  
 <form action="" method="post">
   <input type="number" name="add" value="<?php echo $nbre2 ?>" hidden>
 <button class="btn1" type="submit">Voir plus...</button>
 </form>
+
 	
 
 
@@ -375,9 +379,9 @@ if (isset($_POST['fonction'])) {
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script>
       var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 12,
+        slidesPerView: 11,
         spaceBetween: 2,
-        slidesPerGroup: 12,
+        slidesPerGroup: 11,
         loop: true,
         loopFillGroupWithBlank: true,
         pagination: {
